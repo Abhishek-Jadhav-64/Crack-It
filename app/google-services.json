@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "435098952671",
+    "firebase_url": "https://crack-it-182de.firebaseio.com",
+    "project_id": "crack-it-182de",
+    "storage_bucket": "crack-it-182de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435098952671:android:4d8183dbcf86801f",
+        "android_client_info": {
+          "package_name": "com.example.abhis.crackit4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435098952671-p3t3ko0o65qp8sukq0lf37d6kn404gdt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.abhis.crackit4",
+            "certificate_hash": "7ee7cde72d028007dbd96c6b762fc3a8cc01cc5b"
+          }
+        },
+        {
+          "client_id": "435098952671-kq1laghvnma3c8q2poi5aqh4pngdbnls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDio0gXkXVHM4OAXuG0EyUl19mjdzaTn9E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435098952671-kq1laghvnma3c8q2poi5aqh4pngdbnls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
