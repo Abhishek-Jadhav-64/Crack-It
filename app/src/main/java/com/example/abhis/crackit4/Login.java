@@ -13,6 +13,7 @@ public class Login {
 
     public String username;
     public String password;
+    private String pass2;
 
 
     public void Checklogin()
