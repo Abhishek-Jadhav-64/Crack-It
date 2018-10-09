@@ -1,6 +1,7 @@
 package com.example.abhis.crackit4;
 
 import android.app.Application;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -27,6 +28,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
 
+    int maxTries = 15;
     int randomNum[] = {0,1,2,3,4};
 
     ImageView iView[] = new ImageView[5];
@@ -49,11 +51,18 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("generator" , "random no. is decided");
 
-        final EditText num1 =(EditText)findViewById(R.id.num1);
-        final EditText num2 =(EditText)findViewById(R.id.num2);
-        final EditText num3 =(EditText)findViewById(R.id.num3);
-        final EditText num4 =(EditText)findViewById(R.id.num4);
-        final EditText num5 =(EditText)findViewById(R.id.num5);
+        String mode = getIntent().getStringExtra("mode");
+
+        if(mode.equals("easy"))
+            maxTries = 15;
+        else if(mode.equals("hard"))
+            maxTries = 10;
+
+        final TextInputEditText num1 =(TextInputEditText) findViewById(R.id.num1);
+        final TextInputEditText num2 =(TextInputEditText)findViewById(R.id.num2);
+        final TextInputEditText num3 =(TextInputEditText)findViewById(R.id.num3);
+        final TextInputEditText num4 =(TextInputEditText)findViewById(R.id.num4);
+        final TextInputEditText num5 =(TextInputEditText)findViewById(R.id.num5);
 
         //EditText mExpirationYear,mCvvNumber;
         num1.addTextChangedListener(new TextWatcher() {
@@ -148,11 +157,11 @@ public class MainActivity extends AppCompatActivity {
     public void clear()
     {
 
-        EditText num1 =(EditText)findViewById(R.id.num1);
-        EditText num2 =(EditText)findViewById(R.id.num2);
-        EditText num3 =(EditText)findViewById(R.id.num3);
-        EditText num4 =(EditText)findViewById(R.id.num4);
-        EditText num5 =(EditText)findViewById(R.id.num5);
+        TextInputEditText num1 =findViewById(R.id.num1);
+        TextInputEditText num2 =findViewById(R.id.num2);
+        TextInputEditText num3 =findViewById(R.id.num3);
+        TextInputEditText num4 =findViewById(R.id.num4);
+        TextInputEditText num5 =findViewById(R.id.num5);
 
         num1.setText("");
         num2.setText("");
@@ -216,11 +225,11 @@ public class MainActivity extends AppCompatActivity {
 
     public int[] getData() {
 
-        EditText num1 = (EditText) findViewById(R.id.num1);
-        EditText num2 = (EditText) findViewById(R.id.num2);
-        EditText num3 = (EditText) findViewById(R.id.num3);
-        EditText num4 = (EditText) findViewById(R.id.num4);
-        EditText num5 = (EditText) findViewById(R.id.num5);
+        TextInputEditText num1 =  findViewById(R.id.num1);
+        TextInputEditText num2 =  findViewById(R.id.num2);
+        TextInputEditText num3 =  findViewById(R.id.num3);
+        TextInputEditText num4 =  findViewById(R.id.num4);
+        TextInputEditText num5 =  findViewById(R.id.num5);
 
 
         num[0] = Integer.parseInt(num1.getText().toString());
@@ -257,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
 
         int count = 0;
         int j = 0;
-        int maxTries = 15;
+
 
         char[][] inp = new char[5][2];
 
@@ -327,11 +336,11 @@ public class MainActivity extends AppCompatActivity {
             iView[3] = (ImageView) findViewById(R.id.iview4);
             iView[4] = (ImageView) findViewById(R.id.iview5);
 
-            EditText num1 = (EditText) findViewById(R.id.num1);
-            EditText num2 = (EditText) findViewById(R.id.num2);
-            EditText num3 = (EditText) findViewById(R.id.num3);
-            EditText num4 = (EditText) findViewById(R.id.num4);
-            EditText num5 = (EditText) findViewById(R.id.num5);
+            TextInputEditText num1 =  findViewById(R.id.num1);
+            TextInputEditText num2 =  findViewById(R.id.num2);
+            TextInputEditText num3 =  findViewById(R.id.num3);
+            TextInputEditText num4 =  findViewById(R.id.num4);
+            TextInputEditText num5 =  findViewById(R.id.num5);
 
             addToArray.add(new item( num1.getText().toString(), num2.getText().toString(), num3.getText().toString(), num4.getText().toString(), num5 .getText().toString(), (int)iView[0].getTag(), (int)iView[1].getTag(), (int)iView[2].getTag(), (int)iView[3].getTag(), (int)iView[4].getTag()));
 
@@ -434,11 +443,11 @@ public class MainActivity extends AppCompatActivity {
             ImageView iview4 = (ImageView) convertView.findViewById(R.id.imageV4);
             ImageView iview5 = (ImageView) convertView.findViewById(R.id.imageV5);
 
-            TextView num1 = (TextView) convertView.findViewById(R.id.textV1);
-            TextView num2 = (TextView) convertView.findViewById(R.id.textV2);
-            TextView num3 = (TextView) convertView.findViewById(R.id.textV3);
-            TextView num4 = (TextView) convertView.findViewById(R.id.textV4);
-            TextView num5 = (TextView) convertView.findViewById(R.id.textV5);
+            TextInputEditText num1 =  convertView.findViewById(R.id.textV1);
+            TextInputEditText num2 =  convertView.findViewById(R.id.textV2);
+            TextInputEditText num3 =  convertView.findViewById(R.id.textV3);
+            TextInputEditText num4 =  convertView.findViewById(R.id.textV4);
+            TextInputEditText num5 =  convertView.findViewById(R.id.textV5);
 
             num1.setText(currentItem.getNum1());
             num2.setText(currentItem.getNum2());

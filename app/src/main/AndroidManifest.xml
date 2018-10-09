@@ -14,17 +14,15 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Login_Page"
-            android:label="@string/Login"
-            >
+        <activity
+            android:name=".Login_Page"
+            android:label="@string/Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <service
             android:name=".MyFirebaseInstanceIDService"
@@ -43,6 +41,13 @@
             </intent-filter>
         </service>
 
+        <activity
+            android:name=".AboutMe"
+            android:label="@string/title_activity_about_me"
+            android:theme="@style/AppTheme"></activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
