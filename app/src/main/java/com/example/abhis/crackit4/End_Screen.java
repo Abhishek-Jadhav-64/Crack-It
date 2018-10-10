@@ -28,7 +28,7 @@ public class End_Screen extends AppCompatActivity {
         else
         {
             who.setText("You Won!!!");
-            guess.setText("No of guess required: " + who);
+            guess.setText("No of guess required: " + result);
         }
     }
 
