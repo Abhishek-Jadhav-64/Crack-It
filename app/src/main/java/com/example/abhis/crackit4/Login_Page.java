@@ -21,23 +21,33 @@ public class Login_Page extends AppCompatActivity {
     public void easypressed(View view)
     {
         Intent intent = new Intent(Login_Page.this,MainActivity.class).putExtra("mode", "easy");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
     public void hardpressed(View view)
     {
         Intent intent = new Intent(Login_Page.this,MainActivity.class).putExtra("mode", "easy");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
     public void about(View view)
     {
         Intent intent = new Intent(Login_Page.this,AboutMe.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
+    public void howtoplay(View view)
+    {
+        Intent intent = new Intent(Login_Page.this,HowToPlay.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
     public void quitit(View view)
     {
-
+        System.exit(1);
     }
 }

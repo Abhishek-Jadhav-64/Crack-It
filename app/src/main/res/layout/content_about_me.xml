@@ -26,7 +26,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@drawable/palladium1"
+                />
 
             <TextView
                 android:layout_marginTop="10dp"
@@ -34,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Abhishek Jadhav"
+                android:fontFamily="@font/homemade_apple"
                 android:textColor="#fff"
                 android:textStyle="bold"/>
 
@@ -137,28 +139,30 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_forum_black_24dp"/>
+                        android:src="@drawable/ic_file_download_black_24dp"/>
 
                     <TextView
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
-                        android:text="abhishek.jadhav64@live.com"
-
+                        android:text="https://github.com/Pr0k1ng/Crack-It"
+                        android:textSize="12dp"
                         />
 
                 </LinearLayout>
 
                 <Button
-                    android:layout_marginTop="120dp"
-                    android:layout_marginLeft="92dp"
+                    android:id="@+id/home"
                     android:layout_width="140dp"
                     android:layout_height="50dp"
+                    android:layout_marginLeft="92dp"
+                    android:layout_marginTop="120dp"
+                    android:background="@drawable/buttonstylelightgradient"
+                    android:fontFamily="@font/bowlby_one_sc"
+                    android:onClick="tohome"
                     android:text="Home"
-                    android:textStyle="bold"
-                    android:textColor="#fff"
-                    android:background="@drawable/buttonstylelightgradient"/>
+                    android:textColor="#fff" />
 
             </LinearLayout>
 
@@ -170,3 +174,4 @@
 
 
 </LinearLayout>
+

@@ -1,6 +1,8 @@
 package com.example.abhis.crackit4;
 
 import android.app.Application;
+import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
         else if(mode.equals("hard"))
             maxTries = 10;
 
-        final TextInputEditText num1 =(TextInputEditText) findViewById(R.id.num1);
-        final TextInputEditText num2 =(TextInputEditText)findViewById(R.id.num2);
-        final TextInputEditText num3 =(TextInputEditText)findViewById(R.id.num3);
-        final TextInputEditText num4 =(TextInputEditText)findViewById(R.id.num4);
-        final TextInputEditText num5 =(TextInputEditText)findViewById(R.id.num5);
+        final TextInputEditText num1 =findViewById(R.id.num1);
+        final TextInputEditText num2 =findViewById(R.id.num2);
+        final TextInputEditText num3 =findViewById(R.id.num3);
+        final TextInputEditText num4 =findViewById(R.id.num4);
+        final TextInputEditText num5 =findViewById(R.id.num5);
 
         //EditText mExpirationYear,mCvvNumber;
         num1.addTextChangedListener(new TextWatcher() {
@@ -211,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
         this.crack(input);
     }
 
+
   /* public void addContent() {
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listViewContent);
@@ -237,6 +240,8 @@ public class MainActivity extends AppCompatActivity {
         num[2] = Integer.parseInt(num3.getText().toString());
         num[3] = Integer.parseInt(num4.getText().toString());
         num[4] = Integer.parseInt(num5.getText().toString());
+
+        Log.i("input101",Integer.toString(num[0]));
 
         return num;
     }
@@ -344,7 +349,8 @@ public class MainActivity extends AppCompatActivity {
 
             addToArray.add(new item( num1.getText().toString(), num2.getText().toString(), num3.getText().toString(), num4.getText().toString(), num5 .getText().toString(), (int)iView[0].getTag(), (int)iView[1].getTag(), (int)iView[2].getTag(), (int)iView[3].getTag(), (int)iView[4].getTag()));
 
-            this.clear();
+            Log.i("crack1" , num1.getText().toString());
+
 
             ArrayAdapter<item> adapter = new customAdapter();
 
@@ -354,6 +360,7 @@ public class MainActivity extends AppCompatActivity {
 
             tries++;
 
+            this.clear();
 
             Log.i("Tries Left", Integer.toString(maxTries - tries));
 
@@ -368,6 +375,10 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(MainActivity.this, "You Win",Toast.LENGTH_SHORT).show();
 
+                Intent intent = new Intent(MainActivity.this,End_Screen.class).putExtra("who",Integer.toString(tries));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
                 // System.out.println("");
             } else if (tries >= maxTries) {
 
@@ -376,6 +387,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(MainActivity.this, "You Lost",Toast.LENGTH_SHORT).show();
 
+                Intent intent = new Intent(MainActivity.this,End_Screen.class).putExtra("who","lost");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 return;
             }
 
@@ -437,17 +451,19 @@ public class MainActivity extends AppCompatActivity {
 
             item currentItem = addToArray.get(position);
 
+            //ConstraintLayout layout = findViewById(R.id.rl_container);
+
             ImageView iview1 = (ImageView) convertView.findViewById(R.id.imageV1);
             ImageView iview2 = (ImageView) convertView.findViewById(R.id.imageV2);
             ImageView iview3 = (ImageView) convertView.findViewById(R.id.imageV3);
             ImageView iview4 = (ImageView) convertView.findViewById(R.id.imageV4);
             ImageView iview5 = (ImageView) convertView.findViewById(R.id.imageV5);
 
-            TextInputEditText num1 =  convertView.findViewById(R.id.textV1);
-            TextInputEditText num2 =  convertView.findViewById(R.id.textV2);
-            TextInputEditText num3 =  convertView.findViewById(R.id.textV3);
-            TextInputEditText num4 =  convertView.findViewById(R.id.textV4);
-            TextInputEditText num5 =  convertView.findViewById(R.id.textV5);
+            TextView num1 =  convertView.findViewById(R.id.textV1);
+            TextView num2 =  convertView.findViewById(R.id.textV2);
+            TextView num3 =  convertView.findViewById(R.id.textV3);
+            TextView num4 =  convertView.findViewById(R.id.textV4);
+            TextView num5 =  convertView.findViewById(R.id.textV5);
 
             num1.setText(currentItem.getNum1());
             num2.setText(currentItem.getNum2());
@@ -455,14 +471,51 @@ public class MainActivity extends AppCompatActivity {
             num4.setText(currentItem.getNum4());
             num5.setText(currentItem.getNum5());
 
+            Log.i("adapter101", currentItem.getNum1().toString());
+
             iview1.setImageResource(currentItem.getIview1());
             iview2.setImageResource(currentItem.getIview2());
             iview3.setImageResource(currentItem.getIview3());
             iview4.setImageResource(currentItem.getIview4());
             iview5.setImageResource(currentItem.getIview5());
 
+            /*if(num1.getParent()!=null){
+                ((ViewGroup)num1.getParent()).removeView(num1);
+            }
+            layout.addView(num1);
+
+            if(num2.getParent()!=null){
+                ((ViewGroup)num2.getParent()).removeView(num2);
+            }
+            layout.addView(num2);
+
+            if(num3.getParent()!=null){
+                ((ViewGroup)num3.getParent()).removeView(num3);
+            }
+            layout.addView(num3);
+
+            if(num4.getParent()!=null){
+                ((ViewGroup)num4.getParent()).removeView(num4);
+            }
+            layout.addView(num4);
+
+            if(num5.getParent()!=null){
+                ((ViewGroup)num5.getParent()).removeView(num5);
+            }
+            layout.addView(num5); */
+
+
             return convertView;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        finish();
+        Intent intent = new Intent(MainActivity.this, Login_Page.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }
 
