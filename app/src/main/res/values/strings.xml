@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CrackIT4</string>
+    <string name="app_name">Guess the Number</string>
     <string name="submit">Submit</string>
     <string name="todo">TODO</string>
     <string name="n">N</string>

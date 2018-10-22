@@ -200,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i("IC", "image change error");
     }
 
+
     public void buttonPress(View view) {
 
         //System.out.println("on Submit error");
@@ -210,7 +211,16 @@ public class MainActivity extends AppCompatActivity {
 
         int input[] = getData();
 
-        this.crack(input);
+        if (input[0] == -1)
+        {
+            Toast.makeText(MainActivity.this, "Invalid Number", Toast.LENGTH_SHORT).show();
+            this.clear();
+        }
+        else
+        {
+            this.crack(input);
+        }
+
     }
 
 
@@ -235,15 +245,42 @@ public class MainActivity extends AppCompatActivity {
         TextInputEditText num5 =  findViewById(R.id.num5);
 
 
-        num[0] = Integer.parseInt(num1.getText().toString());
-        num[1] = Integer.parseInt(num2.getText().toString());
-        num[2] = Integer.parseInt(num3.getText().toString());
-        num[3] = Integer.parseInt(num4.getText().toString());
-        num[4] = Integer.parseInt(num5.getText().toString());
+        if(num1.getText().toString() == null || num2.getText().toString() == null || num3.getText().toString() == null || num4.getText().toString() == null || num5.getText().toString() == null)
+        {
+            num[0] = -1;
+        }
+        else if(isSpecial(num1) || isSpecial(num2) || isSpecial(num2) || isSpecial(num3) || isSpecial(num4) || isSpecial(num5))
+        {
+            num[0] = -1;
+        }
+        else
+        {
+            num[0] = Integer.parseInt(num1.getText().toString());
+            num[1] = Integer.parseInt(num2.getText().toString());
+            num[2] = Integer.parseInt(num3.getText().toString());
+            num[3] = Integer.parseInt(num4.getText().toString());
+            num[4] = Integer.parseInt(num5.getText().toString());
+        }
+
 
         Log.i("input101",Integer.toString(num[0]));
 
         return num;
+    }
+
+    public boolean isSpecial(TextInputEditText t)
+    {
+        int a;
+        try
+        {
+            a=Integer.parseInt(t.getText().toString()); //use your variable or object in place of obj
+            System.out.println(a + " is a integer number.");
+        }
+        catch (NumberFormatException e)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void generator() {
