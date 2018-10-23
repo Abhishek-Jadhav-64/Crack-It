@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/graylight"
     android:id="@+id/rl_container"
-    tools:context="com.example.abhis.crackit4.MainActivity">
+    tools:context="com.gtn.abhis.crackit4.MainActivity">
 
     <LinearLayout
         android:paddingLeft="120dp"
